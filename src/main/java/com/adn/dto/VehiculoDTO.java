@@ -1,0 +1,23 @@
+package com.adn.dto;
+
+import java.io.Serializable;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class VehiculoDTO implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Long id_vehiculo;
+	private String placa;
+	private String tipo;
+}
