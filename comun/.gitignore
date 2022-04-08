@@ -1,6 +1,9 @@
+HELP.md
 .gradle
-build
+build/
 !gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
 
 ### STS ###
 .apt_generated
@@ -16,7 +19,7 @@ build
 *.iws
 *.iml
 *.ipr
-/out/
+out/
 
 ### NetBeans ###
 /nbproject/private/
@@ -24,7 +27,6 @@ build
 /dist/
 /nbdist/
 /.nb-gradle/
-bin/
-logs
-# gradle/
 
+### VS Code ###
+.vscode/
