@@ -99,6 +99,6 @@ dependencies {
 
 bootJar {
 	mainClassName = 'com.ceiba.Application'
-    baseName = 'microservicio'
+    baseName = 'Parqueadero'
     version =  version
 }

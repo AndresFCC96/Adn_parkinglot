@@ -35,10 +35,10 @@ dependencies {
 
 	implementation project.ext.apachecommons
 	implementation project.ext.springbootjdbc
-	runtimeOnly project.ext.db
+	project.ext.db = ["org.postgresql:postgresql:42.1.4"]
 	testImplementation project.ext.flywaytest
 
-	
+
 	implementation project(':dominio')
 	implementation project(':aplicacion')
 

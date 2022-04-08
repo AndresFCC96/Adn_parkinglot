@@ -6,7 +6,7 @@ jasypt:
 server:
    port: 2020
    servlet:
-      context-path: /microservicio
+      context-path: /Parqueadero
       session:
          timeout: 21600s
 
@@ -14,8 +14,8 @@ spring:
    datasource:
       driver-class-name: 
       type: com.zaxxer.hikari.HikariDataSource
-      jdbcUrl: 
+      jdbcUrl: jdbc:postgresql://127.0.0.1:5432/adn
       username: postgres
-      password: 
+      password: ENC(3TDIsa8fTWZI08UiriSq00NFax6AOTQK)
       hikari:
          poolName: pool
