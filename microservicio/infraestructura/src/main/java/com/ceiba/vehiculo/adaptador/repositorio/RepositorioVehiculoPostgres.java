@@ -37,7 +37,7 @@ public class RepositorioVehiculoPostgres implements RepositorioVehiculo {
 
     @Override
     public Long crearVehiculo(Vehiculo vehiculo) {
-        return this.customNamedParameterJdbcTemplate.crear(vehiculo, sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(vehiculo, sqlCrear, "id_vehiculo");
     }
 
     @Override

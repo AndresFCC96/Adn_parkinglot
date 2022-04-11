@@ -1,3 +1,3 @@
 update lugar
 set estado = :estado
-where id_lugar = :id_lugar
+where id_lugar = :idLugar

@@ -33,7 +33,7 @@ public class RepositorioLugarPostgres implements RepositorioLugar {
     
     @Override
     public Long crearLugar(Lugar lugar) {
-        return this.customNamedParameterJdbcTemplate.crear(lugar, sqlCrearLugar);
+        return this.customNamedParameterJdbcTemplate.crear(lugar, sqlCrearLugar, "id_lugar");
     }
 
     @Override

@@ -4,11 +4,11 @@ insert into vehiculo (
             tipo,
             fecha_entrada,
             fecha_salida,
-            total_pagar)
+            valor_parqueo)
 values (:placa,
-        :lugar_vehiculo,
+        :lugarVehiculo,
         :tipo,
         :fechaEntrada,
         :fechaSalida,
-        :totalPagar);
+        :valorParqueo);
 
