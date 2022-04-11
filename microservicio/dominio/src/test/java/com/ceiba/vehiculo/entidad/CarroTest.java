@@ -22,15 +22,14 @@ public class CarroTest {
     private static final String SE_DEBE_INGRESAR_EL_LUGAR_DEL_VEHICULO = "Se debe ingresar el lugar del vehiculo";
     private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_ENTRADA = "Se debe ingresar la fecha de entrada";
     private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_SALIDA = "Se debe ingresar la fecha de salida";
-    private static final String SE_DEBE_INGRESAR_EL_VALOR_DEL_PARQUEO = "Se debe ingresar el valor total del parqueo";
 
 
     @Test
     @DisplayName("Deberia crear correctamente el vehiculo")
     void deberiaCrearCorrectamenteElVehiculo(){
         //Arrange
-        LocalDateTime fechaEntrada = LocalDateTime.of(LocalDate.of(2022, 4, 2), LocalTime.of(13, 32));
-        LocalDateTime fechaSalida = LocalDateTime.of(LocalDate.of(2022, 4, 2), LocalTime.of(15, 40));
+        LocalDateTime fechaEntrada = LocalDateTime.of(LocalDate.of(2022, 4, 4), LocalTime.of(13, 32));
+        LocalDateTime fechaSalida = LocalDateTime.of(LocalDate.of(2022, 4, 4), LocalTime.of(15, 40));
         // Act
         Vehiculo vehiculo = new CarroTestDataBuilder().conId(1L).conPlaca("ABC123").build();
         //Assert
@@ -57,8 +56,8 @@ public class CarroTest {
     }
     @Test
     void debeCalcularElTotalAPagarEnDiasFestivos(){
-        LocalDateTime fechaEntrada = LocalDateTime.of(LocalDate.of(2022, 2, 2), LocalTime.of(19, 32));
-        LocalDateTime fechaSalida = LocalDateTime.of(LocalDate.of(2022, 2, 2), LocalTime.of(21, 40));
+        LocalDateTime fechaEntrada = LocalDateTime.of(LocalDate.of(2022, 2, 5), LocalTime.of(19, 32));
+        LocalDateTime fechaSalida = LocalDateTime.of(LocalDate.of(2022, 2, 5), LocalTime.of(21, 40));
 
         Vehiculo vehiculo = new CarroTestDataBuilder().conId(1L).conFechaEntrada(fechaEntrada).conFechaSalida(fechaSalida).build();
 
@@ -116,12 +115,5 @@ public class CarroTest {
         BasePrueba.assertThrows(() -> {
             carroTestDataBuilder.build();
         },ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_LA_FECHA_DE_SALIDA);
-    }
-    @Test
-    void debeFallarSinValorDelParqueo(){
-        CarroTestDataBuilder carroTestDataBuilder = new CarroTestDataBuilder().conId(1L).conFechaSalida(null);
-        BasePrueba.assertThrows(() -> {
-            carroTestDataBuilder.build();
-        },ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_EL_VALOR_DEL_PARQUEO);
     }
 }

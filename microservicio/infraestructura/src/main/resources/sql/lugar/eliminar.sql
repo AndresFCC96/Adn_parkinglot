@@ -1,3 +1,3 @@
 delete
 from lugar
-where id = :id
+where id_lugar = :id_lugar

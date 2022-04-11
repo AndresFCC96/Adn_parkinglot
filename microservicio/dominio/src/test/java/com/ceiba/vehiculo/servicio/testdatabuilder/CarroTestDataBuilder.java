@@ -22,6 +22,7 @@ public class CarroTestDataBuilder {
         this.placa = "XYZ456";
         this.idVehiculo = 1L;
         this.tipo = CONSTANTES.CARRO;
+        this.lugarVehiculo = 1L;
         this.fechaEntrada = LocalDateTime.of(LocalDate.of(2022, 4, 4), LocalTime.of(13, 32));
         this.fechaSalida = LocalDateTime.of(LocalDate.of(2022, 4, 4), LocalTime.of(15, 40));
     }

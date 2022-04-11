@@ -1,3 +1,3 @@
 SELECT *
 FROM vehiculo
-WHERE id_espacio = :idEspacio
+WHERE lugar_vehiculo = :lugar_vehiculo

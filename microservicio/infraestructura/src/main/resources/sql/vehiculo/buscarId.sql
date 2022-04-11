@@ -1,1 +1,1 @@
-select * from vehiculo where id = :id
+select * from vehiculo where id_vehiculo = :id_vehiculo

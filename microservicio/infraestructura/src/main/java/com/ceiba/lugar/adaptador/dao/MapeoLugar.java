@@ -11,9 +11,9 @@ public class MapeoLugar implements RowMapper<DtoLugar>, MapperResult {
 
     @Override
     public DtoLugar mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Long id = rs.getLong("id");
+        Long idLugar = rs.getLong("id_lugar");
         String estado = rs.getString("estado");
 
-        return new DtoLugar(id, estado);
+        return new DtoLugar(idLugar, estado);
     }
 }

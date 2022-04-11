@@ -21,9 +21,12 @@ public class ServicioCrearLugar {
     }
 
     private void validarExistenciaPrevia(Lugar lugar) {
-        boolean existe = this.repositorioLugar.existeLugarPorId(lugar.getIdLugar());
-        if(existe) {
-            throw new ExcepcionDuplicidad(EL_LUGAR_YA_EXISTE_EN_EL_SISTEMA);
+        if(lugar.getIdLugar() != null){
+            boolean existe = this.repositorioLugar.existeLugarPorId(lugar.getIdLugar());
+            if(existe) {
+                throw new ExcepcionDuplicidad(EL_LUGAR_YA_EXISTE_EN_EL_SISTEMA);
+            }
         }
+
     }
 }

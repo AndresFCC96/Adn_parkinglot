@@ -69,12 +69,12 @@ public class ServicioCrearVehiculoTest {
         Mockito.when(repositorioVehiculo.existeVehiculoConPlaca(Mockito.anyString())).thenReturn(false);
         Mockito.when(repositorioLugar.existeLugarPorId(Mockito.anyLong())).thenReturn(true);
         Mockito.when(repositorioVehiculo.existeVehiculoEnUnLugarConId(Mockito.anyLong())).thenReturn(false);
-        Mockito.when(repositorioVehiculo.crearVehiculo(vehiculo)).thenReturn(10L);
+        Mockito.when(repositorioVehiculo.crearVehiculo(vehiculo)).thenReturn(15L);
         ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo, repositorioLugar);
 
         Long id =servicioCrearVehiculo.ejecutar(vehiculo);
 
-        assertEquals(10, id);
+        assertEquals(15, id);
         Mockito.verify(repositorioVehiculo, Mockito.times(1)).crearVehiculo(vehiculo);
     }
 

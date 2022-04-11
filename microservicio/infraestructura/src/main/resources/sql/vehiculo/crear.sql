@@ -1,13 +1,13 @@
 insert into vehiculo (
             placa,
-            id_espacio,
-            tipo_vehiculo,
+            lugar_vehiculo,
+            tipo,
             fecha_entrada,
             fecha_salida,
             total_pagar)
 values (:placa,
-        :idEspacio,
-        :tipoVehiculo,
+        :lugar_vehiculo,
+        :tipo,
         :fechaEntrada,
         :fechaSalida,
         :totalPagar);

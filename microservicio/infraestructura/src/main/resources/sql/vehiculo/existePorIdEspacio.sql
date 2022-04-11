@@ -1,1 +1,1 @@
-select count(1) from vehiculo where id_espacio = :idEspacio
+select count(1) from vehiculo where lugar_vehiculo = :lugar_vehiculo

@@ -28,22 +28,23 @@ public class Vehiculo {
     private LocalDateTime fechaSalida;
     private Double valorParqueo;
 
-    public Vehiculo(Long id_vehiculo, String placa, String tipo, Long lugar_vehiculo,
-                    LocalDateTime fecha_entrada, LocalDateTime fecha_salida) {
+    public Vehiculo(Long idVehiculo, String placa, String tipo, Long lugarVehiculo,
+                    LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {
 
-        validarObligatorio(id_vehiculo, SE_DEBE_INGRESAR_EL_ID_VEHICULO);
+        validarObligatorio(idVehiculo, SE_DEBE_INGRESAR_EL_ID_VEHICULO);
         validarObligatorio(placa, SE_DEBE_INGRESAR_LA_PLACA);
         validarObligatorio(tipo, SE_DEBE_INGRESAR_EL_TIPO);
-        validarObligatorio(lugar_vehiculo, SE_DEBE_INGRESAR_EL_LUGAR_DEL_VEHICULO);
-        validarObligatorio(fecha_entrada, SE_DEBE_INGRESAR_LA_FECHA_DE_ENTRADA);
-        validarObligatorio(fecha_salida, SE_DEBE_INGRESAR_LA_FECHA_DE_SALIDA);
+        validarObligatorio(lugarVehiculo, SE_DEBE_INGRESAR_EL_LUGAR_DEL_VEHICULO);
+        validarObligatorio(fechaEntrada, SE_DEBE_INGRESAR_LA_FECHA_DE_ENTRADA);
+        validarObligatorio(fechaSalida, SE_DEBE_INGRESAR_LA_FECHA_DE_SALIDA);
 
-        this.idVehiculo = id_vehiculo;
+        this.idVehiculo = idVehiculo;
         this.placa = placa;
         this.tipo = tipo;
-        this.lugarVehiculo = lugar_vehiculo;
-        this.fechaEntrada = fecha_entrada;
-        this.fechaSalida = fecha_salida;
+        this.lugarVehiculo = lugarVehiculo;
+        this.fechaEntrada = fechaEntrada;
+        this.fechaSalida = fechaSalida;
+        this.valorParqueo = calcularTotal(this.fechaEntrada, this.fechaSalida, this.tipo);
     }
 
     public Integer calcularNumeroDeHoras(LocalDateTime fechaEntrada, LocalDateTime fechaSalida){

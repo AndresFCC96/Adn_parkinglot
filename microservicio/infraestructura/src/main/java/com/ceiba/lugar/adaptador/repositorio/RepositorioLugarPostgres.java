@@ -51,14 +51,14 @@ public class RepositorioLugarPostgres implements RepositorioLugar {
     @Override
     public void eliminarLugar(Long id) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-        parameterSource.addValue("id", id);
+        parameterSource.addValue("id_lugar", id);
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminarLugar, parameterSource);
     }
 
     @Override
     public boolean existeLugarPorId(Long id) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-        parameterSource.addValue("id" ,id);
+        parameterSource.addValue("id_lugar" ,id);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorIdLugar, parameterSource, Boolean.class);
     }
 }
