@@ -4,7 +4,7 @@ import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 import com.ceiba.vehiculo.servicio.testdatabuilder.CarroTestDataBuilder;
-import com.ceiba.vehiculo.utils.CONSTANTES;
+import com.ceiba.utils.CONSTANTES;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

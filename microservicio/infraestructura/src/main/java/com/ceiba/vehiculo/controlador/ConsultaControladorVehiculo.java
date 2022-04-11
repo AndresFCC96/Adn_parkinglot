@@ -1,6 +1,6 @@
 package com.ceiba.vehiculo.controlador;
 
-import com.ceiba.vehiculo.consulta.ManejadorBuscarIdEspacioVehiculo;
+import com.ceiba.vehiculo.consulta.ManejadorBuscarIdLugarVehiculo;
 import com.ceiba.vehiculo.consulta.ManejadorListarPorPlacaVehiculo;
 import com.ceiba.vehiculo.consulta.ManejadorListarVehiculo;
 import com.ceiba.vehiculo.modelo.dto.DtoVehiculo;
@@ -20,11 +20,11 @@ public class ConsultaControladorVehiculo {
 
     private final ManejadorListarVehiculo manejadorListarVehiculo;
     private final ManejadorListarPorPlacaVehiculo manejadorListarPorPlacaVehiculo;
-    private final ManejadorBuscarIdEspacioVehiculo manejadorBuscarIdEspacioVehiculo;
+    private final ManejadorBuscarIdLugarVehiculo manejadorBuscarIdEspacioVehiculo;
 
     public ConsultaControladorVehiculo(ManejadorListarVehiculo manejadorListarVehiculo,
                                        ManejadorListarPorPlacaVehiculo manejadorListarPorPlacaVehiculo,
-                                       ManejadorBuscarIdEspacioVehiculo manejadorBuscarIdEspacioVehiculo) {
+                                       ManejadorBuscarIdLugarVehiculo manejadorBuscarIdEspacioVehiculo) {
         this.manejadorListarVehiculo = manejadorListarVehiculo;
         this.manejadorListarPorPlacaVehiculo = manejadorListarPorPlacaVehiculo;
         this.manejadorBuscarIdEspacioVehiculo = manejadorBuscarIdEspacioVehiculo;

@@ -1,6 +1,6 @@
 package com.ceiba.vehiculo.modelo.entidad;
 
-import com.ceiba.vehiculo.utils.CONSTANTES;
+import com.ceiba.utils.CONSTANTES;
 import lombok.Data;
 
 import java.time.DayOfWeek;
@@ -57,13 +57,13 @@ public class Vehiculo {
         DayOfWeek diaDeLaSemana = fechaEntrada.getDayOfWeek();
         Integer totalHoras = calcularNumeroDeHoras(fechaEntrada, fechaSalida);
         if (diaDeLaSemana == DayOfWeek.SATURDAY || diaDeLaSemana == DayOfWeek.SUNDAY) {
-            if (tipo == CONSTANTES.CARRO){
+            if (tipo.equals(CONSTANTES.CARRO)){
                 return  (totalHoras * CONSTANTES.TARIFA_EXTRA_CARRO);
             }else{
                 return (totalHoras * CONSTANTES.TARIFA_EXTRA_MOTO);
             }
         }else {
-            if (tipo == CONSTANTES.CARRO){
+            if (tipo.equals(CONSTANTES.CARRO)){
                 total = CONSTANTES.TARIFA_BASE_CARRO * totalHoras;
             }else{
                 total = CONSTANTES.TARIFA_BASE_MOTO * totalHoras;

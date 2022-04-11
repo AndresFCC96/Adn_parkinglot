@@ -19,10 +19,9 @@ public class MapeoVehiculo implements RowMapper<DtoVehiculo>, MapperResult {
         LocalDateTime fechaEntrada = extraerLocalDateTime(rs, "fecha_entrada");
         LocalDateTime fechaSalida = extraerLocalDateTime(rs, "fecha_salida");
         Double valorParqueo = rs.getDouble("valor_parqueo");
-        Double valorBase = rs.getDouble("valor_base");
 
         return new DtoVehiculo(idVehiculo, placa, tipo, lugarVehiculo,  fechaEntrada, fechaSalida,
-                valorParqueo, valorBase);
+                valorParqueo);
 
     }
 }

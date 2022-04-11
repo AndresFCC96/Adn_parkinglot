@@ -44,7 +44,7 @@ public class ComandoControladorVehiculo {
     @PutMapping(value="/{id}")
     @ApiOperation("Actualizar vehiculo")
     public void actualizar(@RequestBody ComandoVehiculo comandoVehiculo,@PathVariable Long id) {
-        comandoVehiculo.setId(id);
+        comandoVehiculo.setIdVehiculo(id);
         manejadorActualizarVehiculo.ejecutar(comandoVehiculo);
     }
 }
