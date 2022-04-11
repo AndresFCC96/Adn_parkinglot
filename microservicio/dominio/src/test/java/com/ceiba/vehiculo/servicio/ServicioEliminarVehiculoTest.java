@@ -15,6 +15,6 @@ public class ServicioEliminarVehiculoTest {
         // act
         servicioEliminarVehiculo.ejecutar(1L);
         // assert
-        Mockito.verify(repositorioVehiculo, Mockito.times(1)).eliminar(1L);
+        Mockito.verify(repositorioVehiculo, Mockito.times(1)).eliminarVehiculo(1L);
     }
 }

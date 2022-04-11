@@ -22,8 +22,6 @@ public class MotoTest {
     private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_ENTRADA = "Se debe ingresar la fecha de entrada";
     private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_SALIDA = "Se debe ingresar la fecha de salida";
     private static final String SE_DEBE_INGRESAR_EL_VALOR_DEL_PARQUEO = "Se debe ingresar el valor total del parqueo";
-    private static final String SE_DEBE_INGRESAR_EL_VALOR_BASE= "Se debe ingresar el valor base por hora";
-
 
     @Test
     @DisplayName("Deberia crear correctamente el vehiculo")
@@ -39,7 +37,6 @@ public class MotoTest {
         assertEquals(fechaEntrada, vehiculo.getFechaEntrada());
         assertEquals(fechaSalida, vehiculo.getFechaSalida());
         assertEquals(3000, vehiculo.getValorParqueo());
-        assertEquals(1500, vehiculo.getValorBase());
         assertEquals(1, vehiculo.getLugarVehiculo());
         assertEquals(CONSTANTES.MOTO, vehiculo.getTipo());
     }
@@ -110,13 +107,6 @@ public class MotoTest {
         BasePrueba.assertThrows(() -> {
             carroTestDataBuilder.build();
         },ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_LA_FECHA_DE_ENTRADA);
-    }
-    @Test
-    void debeFallarSinPrecioBaseHora(){
-        CarroTestDataBuilder carroTestDataBuilder = new CarroTestDataBuilder().conId(1L).conPrecioBaseHora(null);
-        BasePrueba.assertThrows(() -> {
-            carroTestDataBuilder.build();
-        },ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_EL_VALOR_BASE);
     }
     @Test
     void debeFallarSinFechaDeSalida(){

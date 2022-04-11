@@ -3,7 +3,7 @@ package com.ceiba.vehiculo.servicio;
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionSinDatos;
-import com.ceiba.espacio.puerto.repositorio.RepositorioEspacio;
+import com.ceiba.lugar.puerto.repository.RepositorioLugar;
 import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 import com.ceiba.vehiculo.puerto.repositorio.RepositorioVehiculo;
 import com.ceiba.vehiculo.servicio.testdatabuilder.CarroTestDataBuilder;
@@ -24,11 +24,11 @@ public class ServicioCrearVehiculoTest {
     void deberiaLanzarUnaExcepcionCuandoSeValideLaExistenciaDelVehiculo(){
         Vehiculo vehiculo = new CarroTestDataBuilder().build();
         RepositorioVehiculo repositorioVehiculo = Mockito.mock(RepositorioVehiculo.class);
-        RepositorioEspacio repositorioEspacio = Mockito.mock(RepositorioEspacio.class);
-        Mockito.when(repositorioVehiculo.existe(Mockito.anyString())).thenReturn(true);
-        Mockito.when(repositorioEspacio.existePorId(Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioVehiculo.existePorIdEspacio(Mockito.anyLong())).thenReturn(false);
-        ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo, repositorioEspacio);
+        RepositorioLugar repositorioLugar = Mockito.mock(RepositorioLugar.class);
+        Mockito.when(repositorioVehiculo.existeVehiculoConPlaca(Mockito.anyString())).thenReturn(true);
+        Mockito.when(repositorioLugar.existeLugarPorId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioVehiculo.existeVehiculoEnUnLugarConId(Mockito.anyLong())).thenReturn(false);
+        ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo, repositorioLugar);
 
         BasePrueba.assertThrows(()->servicioCrearVehiculo.ejecutar(vehiculo), ExcepcionDuplicidad.class, EL_VEHICULO_YA_EXISTE_EN_EL_SISTEMA);
     }
@@ -37,11 +37,11 @@ public class ServicioCrearVehiculoTest {
     void deberiaLanzarUnaExcepcionCuandoSeValideLaExistenciaDelEspacio(){
         Vehiculo vehiculo = new CarroTestDataBuilder().build();
         RepositorioVehiculo repositorioVehiculo = Mockito.mock(RepositorioVehiculo.class);
-        RepositorioEspacio repositorioEspacio = Mockito.mock(RepositorioEspacio.class);
-        Mockito.when(repositorioVehiculo.existe(Mockito.anyString())).thenReturn(false);
-        Mockito.when(repositorioEspacio.existePorId(Mockito.anyLong())).thenReturn(false);
-        Mockito.when(repositorioVehiculo.existePorIdEspacio(Mockito.anyLong())).thenReturn(false);
-        ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo, repositorioEspacio);
+        RepositorioLugar repositorioLugar = Mockito.mock(RepositorioLugar.class);
+        Mockito.when(repositorioVehiculo.existeVehiculoConPlaca(Mockito.anyString())).thenReturn(false);
+        Mockito.when(repositorioLugar.existeLugarPorId(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioVehiculo.existeVehiculoEnUnLugarConId(Mockito.anyLong())).thenReturn(false);
+        ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo, repositorioLugar);
 
         BasePrueba.assertThrows(()->servicioCrearVehiculo.ejecutar(vehiculo), ExcepcionSinDatos.class, EL_ESPACIO_NO_EXISTE_EN_EL_SITEMA);
     }
@@ -51,11 +51,11 @@ public class ServicioCrearVehiculoTest {
     void deberiaLanzarUnaExcepcionCuandoSeValideLaExistenciaDeUnIdEspacio(){
         Vehiculo vehiculo = new CarroTestDataBuilder().build();
         RepositorioVehiculo repositorioVehiculo = Mockito.mock(RepositorioVehiculo.class);
-        RepositorioEspacio repositorioEspacio = Mockito.mock(RepositorioEspacio.class);
-        Mockito.when(repositorioVehiculo.existe(Mockito.anyString())).thenReturn(false);
-        Mockito.when(repositorioEspacio.existePorId(Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioVehiculo.existePorIdEspacio(Mockito.anyLong())).thenReturn(true);
-        ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo, repositorioEspacio);
+        RepositorioLugar repositorioLugar = Mockito.mock(RepositorioLugar.class);
+        Mockito.when(repositorioVehiculo.existeVehiculoConPlaca(Mockito.anyString())).thenReturn(false);
+        Mockito.when(repositorioLugar.existeLugarPorId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioVehiculo.existeVehiculoEnUnLugarConId(Mockito.anyLong())).thenReturn(true);
+        ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo, repositorioLugar);
         // verify
         BasePrueba.assertThrows(()->servicioCrearVehiculo.ejecutar(vehiculo), ExcepcionDuplicidad.class, EL_ESPACIO_YA_ESTA_OCUPADO);
     }
@@ -65,17 +65,17 @@ public class ServicioCrearVehiculoTest {
     void deberiaCrearElVehiculoDeManeraCorrecta(){
         Vehiculo vehiculo = new CarroTestDataBuilder().build();
         RepositorioVehiculo repositorioVehiculo = Mockito.mock(RepositorioVehiculo.class);
-        RepositorioEspacio repositorioEspacio = Mockito.mock(RepositorioEspacio.class);
-        Mockito.when(repositorioVehiculo.existe(Mockito.anyString())).thenReturn(false);
-        Mockito.when(repositorioEspacio.existePorId(Mockito.anyLong())).thenReturn(true);
-        Mockito.when(repositorioVehiculo.existePorIdEspacio(Mockito.anyLong())).thenReturn(false);
-        Mockito.when(repositorioVehiculo.crear(vehiculo)).thenReturn(10L);
-        ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo, repositorioEspacio);
+        RepositorioLugar repositorioLugar = Mockito.mock(RepositorioLugar.class);
+        Mockito.when(repositorioVehiculo.existeVehiculoConPlaca(Mockito.anyString())).thenReturn(false);
+        Mockito.when(repositorioLugar.existeLugarPorId(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(repositorioVehiculo.existeVehiculoEnUnLugarConId(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(repositorioVehiculo.crearVehiculo(vehiculo)).thenReturn(10L);
+        ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo, repositorioLugar);
 
         Long id =servicioCrearVehiculo.ejecutar(vehiculo);
 
         assertEquals(10, id);
-        Mockito.verify(repositorioVehiculo, Mockito.times(1)).crear(vehiculo);
+        Mockito.verify(repositorioVehiculo, Mockito.times(1)).crearVehiculo(vehiculo);
     }
 
 

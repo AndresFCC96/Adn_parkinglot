@@ -16,7 +16,6 @@ public class MotoTestDataBuilder {
     private LocalDateTime fechaEntrada;
     private LocalDateTime fechaSalida;
     private Double valorParqueo;
-    private Double valorBase;
 
     public MotoTestDataBuilder() {
 
@@ -25,7 +24,6 @@ public class MotoTestDataBuilder {
         this.tipo = CONSTANTES.MOTO;
         this.fechaEntrada = LocalDateTime.of(LocalDate.of(2022, 4, 4), LocalTime.of(13, 32));
         this.fechaSalida = LocalDateTime.of(LocalDate.of(2022, 4, 4), LocalTime.of(15, 40));
-        this.valorBase = 1500.0;
     }
 
     public MotoTestDataBuilder conPlaca(String placa){
@@ -56,11 +54,7 @@ public class MotoTestDataBuilder {
         this.valorParqueo = valorParqueo;
         return this;
     }
-    public MotoTestDataBuilder conPrecioBaseHora(Double valorBase){
-        this.valorBase = valorBase;
-        return this;
-    }
     public Vehiculo build(){
-        return new Vehiculo(idVehiculo, placa, tipo, lugarVehiculo, fechaEntrada, fechaSalida, valorBase);
+        return new Vehiculo(idVehiculo, placa, tipo, lugarVehiculo, fechaEntrada, fechaSalida);
     }
 }

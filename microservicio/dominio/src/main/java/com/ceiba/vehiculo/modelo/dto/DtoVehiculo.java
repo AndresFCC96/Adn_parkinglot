@@ -15,5 +15,4 @@ public class DtoVehiculo {
     private LocalDateTime fecha_entrada;
     private LocalDateTime fecha_salida;
     private Double valor_parqueo;
-    private Double valor_base;
 }

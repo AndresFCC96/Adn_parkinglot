@@ -12,7 +12,6 @@ CREATE TABLE vehiculo (
     fecha_entrada        DATE NOT NULL,
     fecha_salida         DATE NOT NULL,
     valor_parqueo        NUMERIC NOT NULL,
-    valor_base      NUMERIC NOT NULL,
     CONSTRAINT PK_2 PRIMARY KEY ( id_vehiculo ),
     CONSTRAINT FK_1 FOREIGN KEY ( lugar_vehiculo ) REFERENCES lugar ( id_lugar )
 );

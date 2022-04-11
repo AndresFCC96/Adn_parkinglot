@@ -16,7 +16,6 @@ public class CarroTestDataBuilder {
     private LocalDateTime fechaEntrada;
     private LocalDateTime fechaSalida;
     private Double valorParqueo;
-    private Double valorBase;
 
     public CarroTestDataBuilder() {
 
@@ -25,7 +24,6 @@ public class CarroTestDataBuilder {
         this.tipo = CONSTANTES.CARRO;
         this.fechaEntrada = LocalDateTime.of(LocalDate.of(2022, 4, 4), LocalTime.of(13, 32));
         this.fechaSalida = LocalDateTime.of(LocalDate.of(2022, 4, 4), LocalTime.of(15, 40));
-        this.valorBase = 3000.0;
     }
 
     public CarroTestDataBuilder conPlaca(String placa){
@@ -56,12 +54,8 @@ public class CarroTestDataBuilder {
         this.valorParqueo = valorParqueo;
         return this;
     }
-    public CarroTestDataBuilder conPrecioBaseHora(Double valorBase){
-        this.valorBase = valorBase;
-        return this;
-    }
     public Vehiculo build(){
-        return new Vehiculo(idVehiculo, placa, tipo, lugarVehiculo, fechaEntrada, fechaSalida, valorBase);
+        return new Vehiculo(idVehiculo, placa, tipo, lugarVehiculo, fechaEntrada, fechaSalida);
     }
 
 }
