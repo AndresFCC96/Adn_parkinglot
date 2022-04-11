@@ -16,5 +16,4 @@ public class ComandoVehiculo {
     private Long lugarVehiculo;
     private LocalDateTime fechaEntrada;
     private LocalDateTime fechaSalida;
-    private Double valorParqueo;
 }

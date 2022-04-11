@@ -1,0 +1,1 @@
+SELECT * FROM lugar WHERE id = :id;

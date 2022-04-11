@@ -1,7 +1,7 @@
 package com.ceiba.vehiculo.servicio.testdatabuilder;
 
-import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 import com.ceiba.utils.CONSTANTES;
+import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

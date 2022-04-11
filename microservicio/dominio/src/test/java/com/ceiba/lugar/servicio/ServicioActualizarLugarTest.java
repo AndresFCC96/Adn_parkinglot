@@ -4,7 +4,6 @@ import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.lugar.modelo.entidad.Lugar;
 import com.ceiba.lugar.puerto.repository.RepositorioLugar;
-import com.ceiba.lugar.servicio.ServicioActualizarLugar;
 import com.ceiba.lugar.servicio.testDataBuilder.LugarTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

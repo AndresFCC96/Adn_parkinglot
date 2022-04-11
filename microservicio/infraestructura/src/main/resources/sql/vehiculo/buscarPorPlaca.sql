@@ -1,0 +1,1 @@
+SELECT * FROM vehiculo WHERE LOWER(placa) like LOWER(concat('%',:placa, '%'))

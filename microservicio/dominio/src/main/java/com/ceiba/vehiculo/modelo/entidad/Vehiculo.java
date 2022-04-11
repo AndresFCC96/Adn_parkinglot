@@ -5,7 +5,8 @@ import lombok.Data;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
-import static com.ceiba.dominio.ValidadorArgumento.*;
+
+import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Data
 public class Vehiculo {

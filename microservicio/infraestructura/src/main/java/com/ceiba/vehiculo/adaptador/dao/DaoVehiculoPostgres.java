@@ -14,10 +14,10 @@ public class DaoVehiculoPostgres implements DaoVehiculo {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
-    @SqlStatement(namespace = "vehiculo", value = "listarTodosLosVehiculos")
+    @SqlStatement(namespace = "vehiculo", value = "listar")
     private static String sqllistarTodosLosVehiculos;
 
-    @SqlStatement(namespace = "vehiculo", value = "buscarVehiculoPorId")
+    @SqlStatement(namespace = "vehiculo", value = "buscarId")
     private static String sqlBuscarVehiculoPorId;
 
     @SqlStatement(namespace = "vehiculo", value = "buscarPorPlaca")

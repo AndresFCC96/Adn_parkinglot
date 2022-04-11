@@ -1,0 +1,1 @@
+insert into lugar (estado) values (:estado)
