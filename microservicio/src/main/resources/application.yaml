@@ -16,6 +16,6 @@ spring:
       type: com.zaxxer.hikari.HikariDataSource
       jdbcUrl: jdbc:postgresql://127.0.0.1:5432/adn
       username: postgres
-      password: Andres1738
+      password: aceiba1397
       hikari:
          poolName: pool
