@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/vehiculo")
 @Api(tags = {"Controlador comando vehiculo "})
+@CrossOrigin("*")
 public class ComandoControladorVehiculo {
 
     private final ManejadorActualizarVehiculo manejadorActualizarVehiculo;

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/lugar")
 @Api(tags = {"Controlador comando usuario"})
+@CrossOrigin("*")
 public class ComandoControladorLugar {
 
     private final ManejadorCrearLugar manejadorCrearLugar;
@@ -47,4 +48,5 @@ public class ComandoControladorLugar {
     public void eliminar(@PathVariable Long id){
         manejadorEliminarLugar.ejecutar(id);
     }
+
 }
