@@ -49,8 +49,8 @@ pipeline {
 	steps{
 		echo "------------>Compile & Unit Tests<------------"
 		sh 'chmod +x ./microservicio/gradle'
-		sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
-		sh './microservicio/gradlew --b ./microservicio/build.gradle test'
+		sh './microservicio/gradle --b ./microservicio/build.gradle clean'
+		sh './microservicio/gradle --b ./microservicio/build.gradle test'
 	}
     }
 
