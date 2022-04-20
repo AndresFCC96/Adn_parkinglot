@@ -29,15 +29,29 @@ pipeline {
   stages{
     stage('Checkout') {
       steps{
-        echo "------------>Checkout<------------"
+	echo "------------>Checkout<------------"
+	checkout([
+		$class: 'GitSCM',
+		branches: [[name: '*/master']],
+		doGenerateSubmoduleConfigurations: false,
+		extensions: [],
+		gitTool: 'Default',
+		submoduleCfg: [],
+		userRemoteConfigs: [[
+			credentialsId: 'GitHub_AndresFCC96',
+			url:'https://github.com/AndresFCC96/Adn_parkinglot'
+		]]
+	])
       }
     }
     
     stage('Compile & Unit Tests') {
-      steps{
-        echo "------------>Compile & Unit Tests<------------"
-
-      }
+	steps{
+		echo "------------>Compile & Unit Tests<------------"
+		sh 'chmod +x ./microservicio/gradlew'
+		sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
+		sh './microservicio/gradlew --b ./microservicio/build.gradle test'
+	}
     }
 
     stage('Static Code Analysis') {
@@ -50,10 +64,11 @@ pipeline {
     }
 
     stage('Build') {
-      steps {
-        echo "------------>Build<------------"
-      }
-    }  
+	steps {
+		echo "------------>Build<------------"
+		sh './microservicio/gradlew --b ./microservicio/build.gradle build'
+	}
+    }
   }
 
   post {
@@ -65,6 +80,7 @@ pipeline {
     }
     failure {
       echo 'This will run only if failed'
+      mail (to: 'andres.campaz@ceiba.com.co', subject: "Failed Pipeline:${currentBuild.fullDisplayName}", body: "Something is wrong with ${env.BUILD_URL}")
     }
     unstable {
       echo 'This will run only if the run was marked as unstable'
