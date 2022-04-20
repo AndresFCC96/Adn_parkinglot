@@ -66,7 +66,7 @@ pipeline {
     stage('Build') {
 	steps {
 		echo "------------>Build<------------"
-		sh './microservicio/gradlew --b ./microservicio/build.gradle build'
+		sh './microservicio/gradle --b ./microservicio/build.gradle build'
 	}
     }
   }
