@@ -58,7 +58,7 @@ public class RepositorioLugarPostgres implements RepositorioLugar {
     @Override
     public boolean existeLugarPorId(Long id) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-        parameterSource.addValue("id_lugar" ,id);
+        parameterSource.addValue("idLugar" ,id);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorIdLugar, parameterSource, Boolean.class);
     }
 }

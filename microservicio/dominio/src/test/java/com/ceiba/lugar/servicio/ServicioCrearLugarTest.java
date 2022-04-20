@@ -13,6 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ServicioCrearLugarTest {
 
+    private static final String EL_LUGAR_YA_EXISTE_EN_EL_SISTEMA = "El lugar ya existe en el sistema";
+
     @Test
     @DisplayName("Deberia lanzar una excepcion cuando se valide la existencia del lugar")
     void deberiaLanzarUnaExcepcionCuandoSeValideLaExistenciaDelLugar(){
@@ -22,7 +24,7 @@ public class ServicioCrearLugarTest {
         Mockito.when(repositorioLugar.existeLugarPorId(Mockito.anyLong())).thenReturn(true);
         ServicioCrearLugar servicioCrearLugar = new ServicioCrearLugar(repositorioLugar);
         // act - assert
-        BasePrueba.assertThrows(() -> servicioCrearLugar.ejecutar(lugar), ExcepcionDuplicidad.class, "El lugar ya existe en el sistema");
+        BasePrueba.assertThrows(() -> servicioCrearLugar.ejecutar(lugar), ExcepcionDuplicidad.class, EL_LUGAR_YA_EXISTE_EN_EL_SISTEMA);
     }
 
     @Test

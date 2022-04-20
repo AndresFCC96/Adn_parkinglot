@@ -73,13 +73,6 @@ public class CarroTest {
         assertEquals(6000 ,vehiculo.getValorParqueo());
     }
     @Test
-    void debeFallarSinId(){
-        CarroTestDataBuilder carroTestDataBuilder = new CarroTestDataBuilder().conId(null);
-        BasePrueba.assertThrows(() -> {
-            carroTestDataBuilder.build();
-        },ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_EL_ID_VEHICULO);
-    }
-    @Test
     void debeFallarSinPlaca(){
         CarroTestDataBuilder carroTestDataBuilder = new CarroTestDataBuilder().conId(1L).conPlaca(null);
 

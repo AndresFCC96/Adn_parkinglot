@@ -16,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ServicioCrearVehiculoTest {
 
     private static final String EL_VEHICULO_YA_EXISTE_EN_EL_SISTEMA = "El vehiculo ya existe en el sistema";
-    private static final String EL_ESPACIO_NO_EXISTE_EN_EL_SITEMA = "El espacio no existe en el sistema";
-    private static final String EL_ESPACIO_YA_ESTA_OCUPADO = "El espacio ya esta ocupado";
+    private static final String EL_ESPACIO_NO_EXISTE_EN_EL_SITEMA = "El lugar no existe en el sistema";
+    private static final String EL_ESPACIO_YA_ESTA_OCUPADO = "El lugar ya esta ocupado";
 
     @Test
     @DisplayName("Deberia lanzar una excepcion cuando se valide la existencia del vehiculo")

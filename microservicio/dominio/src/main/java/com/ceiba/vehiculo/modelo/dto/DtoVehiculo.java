@@ -8,11 +8,11 @@ import java.time.LocalDateTime;
 @Getter
 @AllArgsConstructor
 public class DtoVehiculo {
-    private Long id_vehiculo;
+    private Long idVehiculo;
     private String placa;
     private String tipo;
-    private Long lugar_vehiculo;
-    private LocalDateTime fecha_entrada;
-    private LocalDateTime fecha_salida;
-    private Double valor_parqueo;
+    private Long lugarVehiculo;
+    private LocalDateTime fechaEntrada;
+    private LocalDateTime fechaSalida;
+    private Double valorParqueo;
 }

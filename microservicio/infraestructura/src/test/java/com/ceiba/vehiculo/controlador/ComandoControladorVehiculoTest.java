@@ -34,7 +34,7 @@ public class ComandoControladorVehiculoTest {
     @DisplayName("Deberia crear un vehiculo")
     void deberiaCrearUnVehiculo() throws Exception{
         // arrange
-        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().build();
+        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().conIdEspacio(2L).build();
         // act - assert
         mockMvc.perform(post("/vehiculo")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -46,7 +46,7 @@ public class ComandoControladorVehiculoTest {
     @Test
     void deberiaFallarAlCrearUnVehiculoConPlacaRepetida() throws Exception{
         // arrange
-        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().conPlaca("ASD123").build();
+        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().conPlaca("AVC123").build();
         // act - assert
         mockMvc.perform(post("/vehiculo")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -63,26 +63,26 @@ public class ComandoControladorVehiculoTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(vehiculo)))
                 .andExpect(status().isBadRequest())
-                .andExpect(content().json("{'nombreExcepcion':'ExcepcionDuplicidad', 'mensaje': 'El espacio ya esta ocupado'}"));
+                .andExpect(content().json("{'nombreExcepcion':'ExcepcionDuplicidad', 'mensaje': 'El lugar ya esta ocupado'}"));
 
     }
     @Test
     void deberiaFallarAlCrearUnVehiculoEnUnEspacioQueNoExiste()throws Exception{
         // arrange
-        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().conIdEspacio(14L).build();
+        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().conIdEspacio(10L).build();
         // act - assert
         mockMvc.perform(post("/vehiculo")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(vehiculo)))
-                .andExpect(status().isNotFound())
-                .andExpect(content().json("{'nombreExcepcion':'ExcepcionSinDatos', 'mensaje': 'El espacio no existe en el sistema'}"));
+                .andExpect(status().isBadRequest())
+                .andExpect(content().json("{'nombreExcepcion':'ExcepcionDuplicidad', 'mensaje': 'El lugar no existe en el sistema'}"));
 
     }
     @Test
     @DisplayName("Deberia actualizar un vehiculo")
     void deberiaActualizarUnVehiculo() throws Exception{
         // arrange
-        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().conId(1L).build();
+        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().conId(1L).conIdEspacio(1L).build();
         // act - assert
         mockMvc.perform(put("/vehiculo/{id}",vehiculo.getIdVehiculo())
                 .contentType(MediaType.APPLICATION_JSON)

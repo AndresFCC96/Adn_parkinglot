@@ -35,7 +35,7 @@ public class ConsultaControladorVehiculoTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].id", is(1)))
-                .andExpect(jsonPath("$[0].placa", is("ASD123")));
+                .andExpect(jsonPath("$[0].idVehiculo", is(1)))
+                .andExpect(jsonPath("$[0].placa", is("AVC123")));
     }
 }

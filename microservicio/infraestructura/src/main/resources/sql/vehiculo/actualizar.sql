@@ -1,8 +1,8 @@
 update vehiculo
 set placa = :placa,
-    lugar_vehiculo = :idEspacio,
+    lugar_vehiculo = :lugarVehiculo,
     tipo =:tipo,
     fecha_entrada = :fechaEntrada,
     fecha_salida = :fechaSalida,
-    total_pagar = :totalPagar
-where id_vehiculo = :id_vehiculo
+    valor_parqueo = :valorParqueo
+where id_vehiculo = :idVehiculo

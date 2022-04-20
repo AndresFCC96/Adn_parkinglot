@@ -1,1 +1,1 @@
-SELECT * FROM lugar WHERE id_lugar = :id_lugar;
+SELECT * FROM lugar WHERE id_lugar = :idLugar;

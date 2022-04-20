@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LugarTest {
 
-    private static final String SE_DEBE_INGRESAR_EL_ESTADO = "Se debe ingresar el estado";
+    private static final String SE_DEBE_INGRESAR_EL_ESTADO = "Se debe ingresar estado";
 
     @Test
     @DisplayName("Deberia crear correctamente el lugar")
@@ -25,7 +25,7 @@ public class LugarTest {
     }
     @Test
     void debeFallarSinEstado(){
-        LugarTestDataBuilder lugarTestDataBuilder = new LugarTestDataBuilder().conId(1L).conEstado(null);
+        LugarTestDataBuilder lugarTestDataBuilder = new LugarTestDataBuilder().conEstado(null);
 
         BasePrueba.assertThrows(() -> {
                     lugarTestDataBuilder.build();

@@ -72,13 +72,6 @@ public class MotoTest {
         assertEquals(3000 ,vehiculo.getValorParqueo());
     }
     @Test
-    void debeFallarSinId(){
-        MotoTestDataBuilder carroTestDataBuilder = new MotoTestDataBuilder().conId(null);
-        BasePrueba.assertThrows(() -> {
-            carroTestDataBuilder.build();
-        }, ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_EL_ID_VEHICULO);
-    }
-    @Test
     void debeFallarSinPlaca(){
         MotoTestDataBuilder carroTestDataBuilder = new MotoTestDataBuilder().conId(1L).conPlaca(null);
 

@@ -18,7 +18,6 @@ public class CarroTestDataBuilder {
     private Double valorParqueo;
 
     public CarroTestDataBuilder() {
-
         this.placa = "XYZ456";
         this.idVehiculo = 1L;
         this.tipo = CONSTANTES.CARRO;

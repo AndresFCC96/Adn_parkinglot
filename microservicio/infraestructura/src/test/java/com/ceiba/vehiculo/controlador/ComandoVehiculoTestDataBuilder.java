@@ -12,18 +12,18 @@ public class ComandoVehiculoTestDataBuilder {
 
     private Long idVehiculo;
     private String placa;
-    private String tipo;
+    private final String tipo;
     private Long lugarVehiculo;
-    private LocalDateTime fechaEntrada;
-    private LocalDateTime fechaSalida;
+    private final LocalDateTime fechaEntrada;
+    private final LocalDateTime fechaSalida;
 
 
     public ComandoVehiculoTestDataBuilder() {
         this.placa = RandomStringUtils.random(6 , "asdfghjkl12345zxcvbg");
-        this.lugarVehiculo = 2L;
+        this.lugarVehiculo = 1L;
         this.tipo = CONSTANTES.CARRO;
-        this.fechaEntrada = LocalDateTime.of(LocalDate.of(2021, 11, 1), LocalTime.of(10, 06));
-        this.fechaSalida = LocalDateTime.of(LocalDate.of(2021, 11, 1), LocalTime.of(16, 06));
+        this.fechaEntrada = LocalDateTime.of(LocalDate.of(2021, 11, 1), LocalTime.of(10, 07));
+        this.fechaSalida = LocalDateTime.of(LocalDate.of(2021, 11, 1), LocalTime.of(16, 07));
     }
     public ComandoVehiculoTestDataBuilder conId(Long id){
         this.idVehiculo = id;

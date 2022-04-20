@@ -1,1 +1,1 @@
-select count(1) from lugar where id_lugar = :id_lugar
+select count(1) from lugar where id_lugar = :idLugar

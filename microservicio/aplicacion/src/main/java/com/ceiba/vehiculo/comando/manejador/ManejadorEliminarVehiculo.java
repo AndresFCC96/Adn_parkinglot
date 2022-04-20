@@ -24,7 +24,7 @@ public class ManejadorEliminarVehiculo implements ManejadorComando<Long> {
 
     public void ejecutar(Long id) {
         DtoVehiculo vehiculo = daoVehiculo.buscarVehiculoPorId(id);
-        this.servicioActualizarEstadoLugar.ejecutar(vehiculo.getLugar_vehiculo(), "D");
+        this.servicioActualizarEstadoLugar.ejecutar(vehiculo.getLugarVehiculo(), "D");
         this.servicioEliminarVehiculo.ejecutar(id);}
 
 }

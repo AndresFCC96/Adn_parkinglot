@@ -11,7 +11,6 @@ import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 @Data
 public class Vehiculo {
 
-    private static final String SE_DEBE_INGRESAR_EL_ID_VEHICULO = "Se debe ingresar el id del vehiculo";
     private static final String SE_DEBE_INGRESAR_LA_PLACA = "Se debe ingresar la placa";
     private static final String SE_DEBE_INGRESAR_EL_TIPO = "Se debe ingresar el tipo de vehiculo";
     private static final String SE_DEBE_INGRESAR_EL_LUGAR_DEL_VEHICULO = "Se debe ingresar el lugar del vehiculo";
@@ -31,7 +30,6 @@ public class Vehiculo {
     public Vehiculo(Long idVehiculo, String placa, String tipo, Long lugarVehiculo,
                     LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {
 
-        validarObligatorio(idVehiculo, SE_DEBE_INGRESAR_EL_ID_VEHICULO);
         validarObligatorio(placa, SE_DEBE_INGRESAR_LA_PLACA);
         validarObligatorio(tipo, SE_DEBE_INGRESAR_EL_TIPO);
         validarObligatorio(lugarVehiculo, SE_DEBE_INGRESAR_EL_LUGAR_DEL_VEHICULO);

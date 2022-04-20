@@ -9,6 +9,7 @@ public class LugarTestDataBuilder {
     private String estado;
 
     public LugarTestDataBuilder(){
+        this.id = 1L;
         this.estado = CONSTANTES.DISPONIBLE;
 
     }
