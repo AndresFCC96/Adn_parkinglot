@@ -45,31 +45,42 @@ pipeline {
       }
     }
     
-    stage('Compile & Unit Tests') {
-	steps{
-		echo "------------>Compile & Unit Tests<------------"
-		sh 'chmod +x ./microservicio/gradle'
-		sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
-		sh './microservicio/gradlew --b ./microservicio/build.gradle test'
-	}
+     stage('Clean') {
+    	steps{
+    	echo "------------>Clean<------------"
+    		sh 'chmod +x ./microservicio/gradlew'
+			sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
+    	}
     }
+	stage('Compile & Unit Tests') {
+		steps{
+			echo "------------>compile & Unit Tests<------------"
+			sh 'chmod +x ./microservicio/gradlew'
+			sh './microservicio/gradlew --b ./microservicio/build.gradle test'
+		}
+	}
+
 
     stage('Static Code Analysis') {
-      steps{
-        echo '------------>Análisis de código estático<------------'
-        withSonarQubeEnv('Sonar') {
-		sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
-        }
-      }
-    }
-
-    stage('Build') {
-	steps {
-		echo "------------>Build<------------"
-		sh './microservicio/gradle --b ./microservicio/build.gradle build'
+			steps{
+				echo '------------>Análisis de código estático<------------'
+				withSonarQubeEnv('Sonar') {
+				sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
+			}
+	     }
 	}
-    }
+
+
+	stage('Build') {
+		steps{
+			echo "------------>Build<------------"
+			//Construir sin tarea test que se ejecutó previamente
+			sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
+		}
+	}
+ 
   }
+
 
   post {
     always {
