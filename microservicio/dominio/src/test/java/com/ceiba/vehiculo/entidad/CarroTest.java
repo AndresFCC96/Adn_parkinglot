@@ -2,7 +2,6 @@ package com.ceiba.vehiculo.entidad;
 
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
-import com.ceiba.utils.CONSTANTES;
 import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 import com.ceiba.vehiculo.servicio.testdatabuilder.CarroTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
@@ -23,6 +22,7 @@ public class CarroTest {
     private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_ENTRADA = "Se debe ingresar la fecha de entrada";
     private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_SALIDA = "Se debe ingresar la fecha de salida";
 
+    public static String CARRO = "C";
 
     @Test
     @DisplayName("Deberia crear correctamente el vehiculo")
@@ -39,7 +39,7 @@ public class CarroTest {
         assertEquals(fechaSalida, vehiculo.getFechaSalida());
         assertEquals(6000, vehiculo.getValorParqueo());
         assertEquals(1, vehiculo.getLugarVehiculo());
-        assertEquals(CONSTANTES.CARRO, vehiculo.getTipo());
+        assertEquals(CARRO, vehiculo.getTipo());
     }
     @Test
     void debeCalcularElTotalAPagarEnHorarioNormalCarro(){
@@ -47,7 +47,7 @@ public class CarroTest {
         LocalDateTime fechaSalida = LocalDateTime.of(LocalDate.of(2022, 2, 4), LocalTime.of(13, 40));
 
         Vehiculo vehiculo = new CarroTestDataBuilder().conId(1L)
-                .conTipoVehiculo(CONSTANTES.CARRO)
+                .conTipoVehiculo(CARRO)
                 .conFechaEntrada(fechaEntrada)
                 .conFechaSalida(fechaSalida).build();
 

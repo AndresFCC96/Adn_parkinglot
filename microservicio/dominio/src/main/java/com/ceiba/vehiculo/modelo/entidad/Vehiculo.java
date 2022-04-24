@@ -1,6 +1,5 @@
 package com.ceiba.vehiculo.modelo.entidad;
 
-import com.ceiba.utils.CONSTANTES;
 import lombok.Data;
 
 import java.time.DayOfWeek;
@@ -16,7 +15,6 @@ public class Vehiculo {
     private static final String SE_DEBE_INGRESAR_EL_LUGAR_DEL_VEHICULO = "Se debe ingresar el lugar del vehiculo";
     private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_ENTRADA = "Se debe ingresar la fecha de entrada";
     private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_SALIDA = "Se debe ingresar la fecha de salida";
-    private static final String SE_DEBE_INGRESAR_EL_VALOR_DEL_PARQUEO = "Se debe ingresar el valor total del parqueo";
 
 
     private Long idVehiculo;
@@ -26,6 +24,8 @@ public class Vehiculo {
     private LocalDateTime fechaEntrada;
     private LocalDateTime fechaSalida;
     private Double valorParqueo;
+
+    private static String CARRO = "C";
 
     public Vehiculo(Long idVehiculo, String placa, String tipo, Long lugarVehiculo,
                     LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {
@@ -53,20 +53,20 @@ public class Vehiculo {
                                 LocalDateTime fechaSalida,
                                 String tipo) {
 
-        Double total = 0.0;
+        Double total;
         DayOfWeek diaDeLaSemana = fechaEntrada.getDayOfWeek();
         Integer totalHoras = calcularNumeroDeHoras(fechaEntrada, fechaSalida);
         if (diaDeLaSemana == DayOfWeek.SATURDAY || diaDeLaSemana == DayOfWeek.SUNDAY) {
-            if (tipo.equals(CONSTANTES.CARRO)){
-                return  (totalHoras * CONSTANTES.TARIFA_EXTRA_CARRO);
+            if (tipo.equals(CARRO)){
+                return  (totalHoras * 5000.0);
             }else{
-                return (totalHoras * CONSTANTES.TARIFA_EXTRA_MOTO);
+                return (totalHoras * 3000.0);
             }
         }else {
-            if (tipo.equals(CONSTANTES.CARRO)){
-                total = CONSTANTES.TARIFA_BASE_CARRO * totalHoras;
+            if (tipo.equals(CARRO)){
+                total = 3000.0 * totalHoras;
             }else{
-                total = CONSTANTES.TARIFA_BASE_MOTO * totalHoras;
+                total = 1500.0 * totalHoras;
             }
         }
         return total;
