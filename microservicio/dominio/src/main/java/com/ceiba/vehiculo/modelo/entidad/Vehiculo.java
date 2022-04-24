@@ -1,13 +1,10 @@
 package com.ceiba.vehiculo.modelo.entidad;
 
-import lombok.Data;
-
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
-@Data
 public class Vehiculo {
 
     private static final String SE_DEBE_INGRESAR_LA_PLACA = "Se debe ingresar la placa";
@@ -25,7 +22,7 @@ public class Vehiculo {
     private LocalDateTime fechaSalida;
     private Double valorParqueo;
 
-    private static String carro = "C";
+    private final String carro = "C";
 
     public Vehiculo(Long idVehiculo, String placa, String tipo, Long lugarVehiculo,
                     LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {
@@ -43,6 +40,54 @@ public class Vehiculo {
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
         this.valorParqueo = calcularTotal(this.fechaEntrada, this.fechaSalida, this.tipo);
+    }
+
+    public Long getIdVehiculo() {
+        return idVehiculo;
+    }
+
+    public void setIdVehiculo(Long idVehiculo) {
+        this.idVehiculo = idVehiculo;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Long getLugarVehiculo() {
+        return lugarVehiculo;
+    }
+
+    public LocalDateTime getFechaEntrada() {
+        return fechaEntrada;
+    }
+
+    public void setFechaEntrada(LocalDateTime fechaEntrada) {
+        this.fechaEntrada = fechaEntrada;
+    }
+
+    public LocalDateTime getFechaSalida() {
+        return fechaSalida;
+    }
+
+    public void setFechaSalida(LocalDateTime fechaSalida) {
+        this.fechaSalida = fechaSalida;
+    }
+
+    public Double getValorParqueo() {
+        return valorParqueo;
     }
 
     public Integer calcularNumeroDeHoras(LocalDateTime fechaEntrada, LocalDateTime fechaSalida){
