@@ -25,7 +25,7 @@ public class Vehiculo {
     private LocalDateTime fechaSalida;
     private Double valorParqueo;
 
-    private static String CARRO = "C";
+    private static String carro = "C";
 
     public Vehiculo(Long idVehiculo, String placa, String tipo, Long lugarVehiculo,
                     LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {
@@ -57,13 +57,13 @@ public class Vehiculo {
         DayOfWeek diaDeLaSemana = fechaEntrada.getDayOfWeek();
         Integer totalHoras = calcularNumeroDeHoras(fechaEntrada, fechaSalida);
         if (diaDeLaSemana == DayOfWeek.SATURDAY || diaDeLaSemana == DayOfWeek.SUNDAY) {
-            if (tipo.equals(CARRO)){
+            if (tipo.equals(carro)){
                 return  (totalHoras * 5000.0);
             }else{
                 return (totalHoras * 3000.0);
             }
         }else {
-            if (tipo.equals(CARRO)){
+            if (tipo.equals(carro)){
                 total = 3000.0 * totalHoras;
             }else{
                 total = 1500.0 * totalHoras;
