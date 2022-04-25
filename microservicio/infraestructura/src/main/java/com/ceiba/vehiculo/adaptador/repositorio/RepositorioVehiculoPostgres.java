@@ -12,6 +12,8 @@ public class RepositorioVehiculoPostgres implements RepositorioVehiculo {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
+    private final String vehiculoParam = "id_vehiculo";
+
     @SqlStatement(namespace="vehiculo", value="crear")
     private static String sqlCrear;
 
@@ -37,7 +39,7 @@ public class RepositorioVehiculoPostgres implements RepositorioVehiculo {
 
     @Override
     public Long crearVehiculo(Vehiculo vehiculo) {
-        return this.customNamedParameterJdbcTemplate.crear(vehiculo, sqlCrear, "id_vehiculo");
+        return this.customNamedParameterJdbcTemplate.crear(vehiculo, sqlCrear, vehiculoParam);
     }
 
     @Override
@@ -64,7 +66,7 @@ public class RepositorioVehiculoPostgres implements RepositorioVehiculo {
     @Override
     public boolean existeVehiculoConId(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id_vehiculo", id);
+        paramSource.addValue(vehiculoParam, id);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId,paramSource, Boolean.class);
     }
@@ -72,7 +74,7 @@ public class RepositorioVehiculoPostgres implements RepositorioVehiculo {
     @Override
     public boolean existeVehiculoEnUnLugarConId(Long id) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-        parameterSource.addValue("lugar_vehiculo", id);
+        parameterSource.addValue(vehiculoParam, id);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiteporIdEspacio, parameterSource, Boolean.class);
 
