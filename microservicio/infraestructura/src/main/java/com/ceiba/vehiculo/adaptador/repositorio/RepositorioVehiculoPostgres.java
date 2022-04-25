@@ -50,7 +50,7 @@ public class RepositorioVehiculoPostgres implements RepositorioVehiculo {
     @Override
     public void eliminarVehiculo(Long id){
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-        parameterSource.addValue("id_vehiculo", id);
+        parameterSource.addValue(vehiculoParam, id);
 
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, parameterSource);
     }
@@ -74,7 +74,7 @@ public class RepositorioVehiculoPostgres implements RepositorioVehiculo {
     @Override
     public boolean existeVehiculoEnUnLugarConId(Long id) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-        parameterSource.addValue(vehiculoParam, id);
+        parameterSource.addValue("lugar_vehiculo", id);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiteporIdEspacio, parameterSource, Boolean.class);
 
