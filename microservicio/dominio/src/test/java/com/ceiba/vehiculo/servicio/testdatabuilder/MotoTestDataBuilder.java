@@ -1,6 +1,5 @@
 package com.ceiba.vehiculo.servicio.testdatabuilder;
 
-import com.ceiba.utils.CONSTANTES;
 import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 
 import java.time.LocalDate;
@@ -15,13 +14,12 @@ public class MotoTestDataBuilder {
     private Long lugarVehiculo;
     private LocalDateTime fechaEntrada;
     private LocalDateTime fechaSalida;
-    private Double valorParqueo;
 
     public MotoTestDataBuilder() {
-
+        final String moto = "M";
         this.placa = "XYZ456";
         this.idVehiculo = 1L;
-        this.tipo = CONSTANTES.MOTO;
+        this.tipo = moto;
         this.lugarVehiculo = 1L;
         this.fechaEntrada = LocalDateTime.of(LocalDate.of(2022, 4, 4), LocalTime.of(13, 32));
         this.fechaSalida = LocalDateTime.of(LocalDate.of(2022, 4, 4), LocalTime.of(15, 40));
@@ -51,8 +49,7 @@ public class MotoTestDataBuilder {
         this.fechaSalida = fechaSalida;
         return this;
     }
-    public MotoTestDataBuilder conTotalPagar(Double valorParqueo){
-        this.valorParqueo = valorParqueo;
+    public MotoTestDataBuilder conTotalPagar(Double valorTotalParqueo){
         return this;
     }
     public Vehiculo build(){

@@ -1,7 +1,6 @@
 package com.ceiba.lugar.servicio.testDataBuilder;
 
 import com.ceiba.lugar.modelo.entidad.Lugar;
-import com.ceiba.utils.CONSTANTES;
 
 public class LugarTestDataBuilder {
 
@@ -9,8 +8,9 @@ public class LugarTestDataBuilder {
     private String estado;
 
     public LugarTestDataBuilder(){
+        final String disponible = "D";
         this.id = 1L;
-        this.estado = CONSTANTES.DISPONIBLE;
+        this.estado = disponible;
 
     }
     public LugarTestDataBuilder conId(Long id){

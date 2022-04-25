@@ -1,6 +1,5 @@
 package com.ceiba.vehiculo.controlador;
 
-import com.ceiba.utils.CONSTANTES;
 import com.ceiba.vehiculo.comando.ComandoVehiculo;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -17,13 +16,13 @@ public class ComandoVehiculoTestDataBuilder {
     private final LocalDateTime fechaEntrada;
     private final LocalDateTime fechaSalida;
 
-
     public ComandoVehiculoTestDataBuilder() {
+        final String carro = "C";
         this.placa = RandomStringUtils.random(6 , "asdfghjkl12345zxcvbg");
         this.lugarVehiculo = 1L;
-        this.tipo = CONSTANTES.CARRO;
-        this.fechaEntrada = LocalDateTime.of(LocalDate.of(2021, 11, 1), LocalTime.of(10, 07));
-        this.fechaSalida = LocalDateTime.of(LocalDate.of(2021, 11, 1), LocalTime.of(16, 07));
+        this.tipo = carro;
+        this.fechaEntrada = LocalDateTime.of(LocalDate.of(2021, 11, 1), LocalTime.of(10, 7));
+        this.fechaSalida = LocalDateTime.of(LocalDate.of(2021, 11, 1), LocalTime.of(16, 7));
     }
     public ComandoVehiculoTestDataBuilder conId(Long id){
         this.idVehiculo = id;

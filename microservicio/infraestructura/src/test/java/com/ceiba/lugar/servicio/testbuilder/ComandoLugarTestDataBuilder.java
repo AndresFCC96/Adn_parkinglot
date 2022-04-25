@@ -1,15 +1,14 @@
 package com.ceiba.lugar.servicio.testbuilder;
 
 import com.ceiba.lugar.comando.ComandoLugar;
-import com.ceiba.utils.CONSTANTES;
 
 public class ComandoLugarTestDataBuilder {
 
     private Long id;
-    private String estado;
+    private final String estado;
 
     public ComandoLugarTestDataBuilder(){
-        this.estado = CONSTANTES.DISPONIBLE;
+        this.estado = "D";
     }
     public ComandoLugarTestDataBuilder conNombre(String nombre){
         return this;

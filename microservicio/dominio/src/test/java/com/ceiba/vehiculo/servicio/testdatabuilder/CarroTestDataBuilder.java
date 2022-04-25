@@ -1,6 +1,5 @@
 package com.ceiba.vehiculo.servicio.testdatabuilder;
 
-import com.ceiba.utils.CONSTANTES;
 import com.ceiba.vehiculo.modelo.entidad.Vehiculo;
 
 import java.time.LocalDate;
@@ -15,12 +14,12 @@ public class CarroTestDataBuilder {
     private Long lugarVehiculo;
     private LocalDateTime fechaEntrada;
     private LocalDateTime fechaSalida;
-    private Double valorParqueo;
 
     public CarroTestDataBuilder() {
+        final String carro = "C";
         this.placa = "XYZ456";
         this.idVehiculo = 1L;
-        this.tipo = CONSTANTES.CARRO;
+        this.tipo = carro;
         this.lugarVehiculo = 1L;
         this.fechaEntrada = LocalDateTime.of(LocalDate.of(2022, 4, 4), LocalTime.of(13, 32));
         this.fechaSalida = LocalDateTime.of(LocalDate.of(2022, 4, 4), LocalTime.of(15, 40));
@@ -51,7 +50,6 @@ public class CarroTestDataBuilder {
         return this;
     }
     public CarroTestDataBuilder conTotalPagar(Double valorParqueo){
-        this.valorParqueo = valorParqueo;
         return this;
     }
     public Vehiculo build(){
