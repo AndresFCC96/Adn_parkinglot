@@ -12,7 +12,7 @@ public class RepositorioVehiculoPostgres implements RepositorioVehiculo {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
-    private final String vehiculoParam = "id_vehiculo";
+    private final static String vehiculoParam = "id_vehiculo";
 
     @SqlStatement(namespace="vehiculo", value="crear")
     private static String sqlCrear;
