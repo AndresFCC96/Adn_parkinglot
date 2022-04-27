@@ -1,4 +1,4 @@
-package com.ceiba.vehiculo.controlador;
+package com.ceiba.vehiculo.servicio.testbuilder;
 
 import com.ceiba.vehiculo.comando.ComandoVehiculo;
 import org.apache.commons.lang3.RandomStringUtils;

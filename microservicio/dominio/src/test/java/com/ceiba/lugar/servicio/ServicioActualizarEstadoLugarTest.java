@@ -26,19 +26,4 @@ public class ServicioActualizarEstadoLugarTest {
         BasePrueba.assertThrows(() -> servicioActualizarEstadoLugarLugar.ejecutar(lugar.getIdLugar(), lugar.getEstado()), ExcepcionDuplicidad.class, EL_LUGAR_NO_EXISTE_EN_EL_SISTEMA);
 
     }
-
-
-//    @Test
-//    @DisplayName("Deberia actualizar correctamente en el repositorio")
-//    void deberiaActualizarCorrectamenteEnElRepositorio(){
-//        // arrange
-//        Lugar lugar = new LugarTestDataBuilder().conId(1L).conEstado("O").build();
-//        RepositorioLugar repositorioLugar = Mockito.mock(RepositorioLugar.class);
-//        Mockito.when(repositorioLugar.existeLugarPorId(Mockito.anyLong())).thenReturn(true);
-//        ServicioActualizarEstadoLugar servicioActualizarEstadoLugarLugar = new ServicioActualizarEstadoLugar(repositorioLugar);
-//        // act
-//        servicioActualizarEstadoLugarLugar.ejecutar(lugar.getIdLugar(), lugar.getEstado());
-//        // assert
-//        Mockito.verify(repositorioLugar, Mockito.times(1)).actualizarLugar(lugar);
-//    }
 }

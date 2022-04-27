@@ -43,7 +43,7 @@ public class DaoLugarPostgres implements DaoLugar {
     @Override
     public DtoLugar buscarEspacioPorId(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id", id);
+        paramSource.addValue("idLugar", id);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlBuscarId, paramSource, new MapeoLugar()).stream().findFirst().get();
     }
 }

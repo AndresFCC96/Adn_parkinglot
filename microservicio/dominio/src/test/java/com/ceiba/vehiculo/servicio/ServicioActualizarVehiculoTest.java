@@ -27,13 +27,14 @@ public class ServicioActualizarVehiculoTest {
     @Test
     @DisplayName("Deberia actualizar correctamente el vehiculo")
     void deberiaActualizarCorrectamenteElVehiculo(){
+        //Arrange
         Vehiculo vehiculo = new CarroTestDataBuilder().conId(1L).build();
         RepositorioVehiculo repositorioVehiculo = Mockito.mock(RepositorioVehiculo.class);
         Mockito.when(repositorioVehiculo.existeVehiculoConId(Mockito.anyLong())).thenReturn(true);
         ServicioActualizarVehiculo servicioActualizarVehiculo = new ServicioActualizarVehiculo(repositorioVehiculo);
-
+        //Act
         servicioActualizarVehiculo.ejecutar(vehiculo);
-
+        //Assert
         Mockito.verify(repositorioVehiculo , Mockito.times(1)).actualizarVehiculo(vehiculo);
     }
 }
